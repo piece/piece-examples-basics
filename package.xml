@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id$ -->
+<package packagerversion="1.5.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Piece_Examples_Basics</name>
+ <channel>pear.piece-framework.com</channel>
+ <summary>Piece Framework basics examples</summary>
+ <description>Piece_Examples_Basics provides several example applications which focus on presenting the basics of using Piece_Unity.</description>
+ <lead>
+  <name>KUBO Atsuhiro</name>
+  <user>iteman</user>
+  <email>iteman@users.sourceforge.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2007-07-19</date>
+ <time>22:27:48</time>
+ <version>
+  <release>1.0.0</release>
+  <api>1.0.0</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+ <notes>This is the first stable release of Piece_Examples_Basics.
+
+This package is extracted from the Piece_Unity package.</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="docs">
+    <file name="LICENSE" role="doc">
+     <tasks:replace from="@package_version@" to="version" type="package-info" />
+    </file>
+   </dir> <!-- /docs -->
+   <dir name="web">
+    <dir name="htdocs">
+     <dir name="css">
+      <file name="default.css" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/htdocs/css -->
+     <dir name="images">
+      <file name="bg.gif" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="date_icon.gif" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="piece_footer.jpg" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="piece_header.jpg" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="quotes.gif" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/htdocs/images -->
+     <dir name="js">
+      <file name="ahah.js" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="window_operation.js" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/htdocs/js -->
+     <file name="authenticate.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="index.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="protected-resource.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="register-with-exclusive-mode-and-ahah.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="register-with-exclusive-mode.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="register-with-non-exclusive-mode.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+    </dir> <!-- /web/htdocs -->
+    <dir name="webapp">
+     <dir name="actions">
+      <file name="AuthenticationAction.php" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="IndexAction.php" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="ProtectedResourceAction.php" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="RegistrationAction.php" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/webapp/actions -->
+     <dir name="cache">
+      <dir name="flows">
+       <file name="README" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/cache/flows -->
+      <dir name="validations">
+       <file name="README" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/cache/validations -->
+      <file name="README" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/webapp/cache -->
+     <dir name="compiled-templates">
+      <file name="README" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/webapp/compiled-templates -->
+     <dir name="config">
+      <dir name="flows">
+       <file name="Authentication.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="ProtectedResource.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Registration.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/config/flows -->
+      <dir name="validations">
+       <file name="Authentication.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Registration.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/config/validations -->
+      <file name="piece-unity-config.yaml" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/webapp/config -->
+     <dir name="sessions">
+      <file name="README" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+     </dir> <!-- /web/webapp/sessions -->
+     <dir name="templates">
+      <dir name="Authentication">
+       <file name="Finish.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Form.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Home.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/templates/Authentication -->
+      <dir name="Layout">
+       <file name="Layout.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/templates/Layout -->
+      <dir name="ProtectedResource">
+       <file name="A.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="B.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="C.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/templates/ProtectedResource -->
+      <dir name="Registration">
+       <file name="Confirmation.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Finish.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Form.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/templates/Registration -->
+      <dir name="Static">
+       <file name="Index.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+      </dir> <!-- /web/webapp/templates/Static -->
+     </dir> <!-- /web/webapp/templates -->
+    </dir> <!-- /web/webapp -->
+   </dir> <!-- /web -->
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+   <package>
+    <name>Piece_Unity</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>1.0.0</min>
+   </package>
+   <package>
+    <name>Piece_Unity_Component_NullByteAttackPreventation</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>1.0.0</min>
+   </package>
+   <package>
+    <name>Piece_Unity_Component_Authentication</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>0.13.0</min>
+   </package>
+   <package>
+    <name>Piece_Unity_Component_Flexy</name>
+    <channel>pear.piece-framework.com</channel>
+    <min>1.0.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-07-19</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+   <notes>This is the first stable release of Piece_Examples_Basics.
+
+This package is extracted from the Piece_Unity package.</notes>
+  </release>
+ </changelog>
+</package>
