@@ -119,15 +119,7 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
     {
         $flexyElement = &new Piece_Unity_Service_FlexyElement();
         $flexyElement->addForm($this->_flow->getView(), $this->_context->getScriptName());
-
-        $validation = &$this->_context->getValidation();
-        $results = &$validation->getResults('Authentication');
-        if ($results) {
-            foreach ($results->getFieldNames() as $field) {
-                $flexyElement->setValue($field, @$this->_user->$field);
-            }
-        }
-
+        $flexyElement->restoreValues('Authentication', $this->_user);
         $flexyElement->setValue('password', '');
 
         $request = &$this->_context->getRequest();
