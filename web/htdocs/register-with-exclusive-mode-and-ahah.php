@@ -45,7 +45,6 @@ if (file_exists(dirname(__FILE__) . '/../../imports')) {
 
 require_once 'Piece/Unity.php';
 require_once 'Piece/Unity/Error.php';
-require_once 'Piece/Unity/Config.php';
 
 Piece_Unity_Error::pushCallback(create_function('$error', 'var_dump($error); return ' . PEAR_ERRORSTACK_DIE . ';'));
 
@@ -55,12 +54,11 @@ ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_N
 session_save_path("$base/sessions");
 
 $flowName = 'Registration';
-$config = &new Piece_Unity_Config();
-$config->setConfiguration('Dispatcher_Continuation', 'flowName', "{$flowName}WithExclusiveModeAndAHAH");
-$config->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/$flowName");
-$config->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/$flowName");
-$config->setConfiguration('Renderer_Flexy', 'turnOffLayoutByHTTPAccept', true);
-$unity = &new Piece_Unity("$base/config", "$base/cache", $config);
+$unity = &new Piece_Unity("$base/config", "$base/cache");
+$unity->setConfiguration('Dispatcher_Continuation', 'flowName', "{$flowName}WithExclusiveModeAndAHAH");
+$unity->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/$flowName");
+$unity->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/$flowName");
+$unity->setConfiguration('Renderer_Flexy', 'turnOffLayoutByHTTPAccept', true);
 $unity->dispatch();
 
 /*

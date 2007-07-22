@@ -45,7 +45,6 @@ if (file_exists(dirname(__FILE__) . '/../../imports')) {
 
 require_once 'Piece/Unity.php';
 require_once 'Piece/Unity/Error.php';
-require_once 'Piece/Unity/Config.php';
 
 Piece_Unity_Error::pushCallback(create_function('$error', 'var_dump($error); return ' . PEAR_ERRORSTACK_DIE . ';'));
 
@@ -54,12 +53,11 @@ $base = dirname(__FILE__) . '/../webapp';
 ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])));
 session_save_path("$base/sessions");
 
-$config = &new Piece_Unity_Config();
-$config->setConfiguration('Configurator_Event', 'eventName', 'Index');
-$config->setExtension('Controller', 'dispatcher', 'Dispatcher_Simple');
-$config->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/Static");
-$config->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/Static");
-$unity = &new Piece_Unity("$base/config", "$base/cache", $config);
+$unity = &new Piece_Unity("$base/config", "$base/cache");
+$unity->setConfiguration('Configurator_Event', 'eventName', 'Index');
+$unity->setExtension('Controller', 'dispatcher', 'Dispatcher_Simple');
+$unity->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/Static");
+$unity->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/Static");
 $unity->dispatch();
 
 /*
