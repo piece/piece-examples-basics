@@ -52,6 +52,18 @@
         - name: ProtectedResource
           file: ../webapp/config/flows/ProtectedResource.yaml
           isExclusive: false
+    - name: enableGC
+      type: configuration
+      value: true
+    - name: gcExpirationTime
+      type: configuration
+      value: 30
+    - name: useGCFallback
+      type: configuration
+      value: true
+    - name: gcFallbackURL
+      type: configuration
+      value: "http://example.org/basics/flow-execution-expired.php"
 
 - name: Dispatcher_Simple
   point:
