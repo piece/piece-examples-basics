@@ -119,6 +119,9 @@
     - name: cacheDirectory
       type: configuration
       value: ../webapp/cache/validations
+    - name: useUnderscoreAsDirectorySeparator
+      type: configuration
+      value: true
 
 - name: Configurator_Proxy
   point:
