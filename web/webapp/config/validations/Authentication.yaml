@@ -28,25 +28,11 @@
 
 - name: loginName
   description: Login Name
-  required:
-    message: %_description% is required
-  validator:
-    - name: Length
-      rule:
-        min: 1
-        max: 255
-      message: The length of %_description% must be less than 255 characters
+  basedOn: String
 
 - name: password
   description: Password
-  required:
-    message: %_description% is required
-  validator:
-    - name: Length
-      rule:
-        min: 1
-        max: 255
-      message: The length of %_description% must be less than 255 characters
+  basedOn: String
 
 # Local Variables:
 # mode: conf-colon

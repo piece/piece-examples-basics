@@ -26,13 +26,15 @@
 # POSSIBILITY OF SUCH DAMAGE.
 ######################################################################
 
-- name: firstName
-  description: First Name
-  basedOn: String
-
-- name: lastName
-  description: Last Name
-  basedOn: String
+- name: String
+  required:
+    message: %_description% is required
+  validator:
+    - name: Length
+      rule:
+        min: 1
+        max: 255
+      message: The length of %_description% must be less than %max% characters
 
 # Local Variables:
 # mode: conf-colon
