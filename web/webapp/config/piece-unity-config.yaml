@@ -91,21 +91,13 @@
 
 - name: Interceptor_Authentication
   point:
-    - name: services
+    - name: url
+      type: configuration
+      value: "http://example.org/basics/authenticate.php"
+    - name: resources
       type: configuration
       value:
-        - name: Example
-          guard:
-            class: AuthenticationAction
-            method: isAuthenticated
-          url: "http://example.org/basics/authenticate.php"
-          resources:
-            - /protected-resource.php
-          useCallback: true
-          callbackKey: callback
-    - name: guardDirectory
-      type: configuration
-      value: ../webapp/actions
+        - /protected-resource.php
 
 - name: Configurator_Validation
   point:

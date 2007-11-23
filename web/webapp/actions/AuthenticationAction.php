@@ -37,6 +37,7 @@
 
 require_once 'Piece/Unity/Service/FlowAction.php';
 require_once 'Piece/Unity/Service/FlexyElement.php';
+require_once 'Piece/Unity/Service/Authentication.php';
 
 // {{{ AuthenticationAction
 
@@ -82,19 +83,10 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         $validation = &$this->_context->getValidation();
         if ($validation->validate('Authentication', $this->_user)) {
             if ($this->_user->loginName === 'guest' && $this->_user->password === 'guest') {
-                $session = &$this->_context->getSession();
-                $session->setAttribute('isAuthenticated', true);
-
-                $request = &$this->_context->getRequest();
-                if ($request->hasParameter('callback')) {
-                    $callback = $request->getParameter('callback');
-                    if (!is_null($callback) && $callback !== '') {
-                        $config = &$this->_context->getConfiguration();
-                        $config->setConfiguration('View',
-                                                  'forcedView',
-                                                  Piece_Unity_URL::create('http://example.org' . rawurldecode(html_entity_decode($callback)))
-                                                  );
-                    }
+                $authentication = &new Piece_Unity_Service_Authentication();
+                $authentication->login();
+                if ($authentication->hasCallbackURL()) {
+                    $authentication->redirectToCallbackURL();
                 }
 
                 return 'DisplayHomeFromProcessLogin';
@@ -110,8 +102,8 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
 
     function doProcessLogoutFromDisplayHome()
     {
-        $session = &$this->_context->getSession();
-        $session->setAttribute('isAuthenticated', false);
+        $authentication = &new Piece_Unity_Service_Authentication();
+        $authentication->logout();
         return 'DisplayFinishFromProcessLogout';
     }
 
@@ -121,10 +113,6 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         $flexyElement->addForm($this->_flow->getView(), $this->_context->getScriptName());
         $flexyElement->restoreValues('Authentication', $this->_user);
         $flexyElement->setValue('password', '');
-
-        $request = &$this->_context->getRequest();
-        $viewElement = &$this->_context->getViewElement();
-        $viewElement->setElement('callback', rawurldecode(html_entity_decode(@$request->getParameter('callback'))));
 
         $this->_setTitle();
     }
