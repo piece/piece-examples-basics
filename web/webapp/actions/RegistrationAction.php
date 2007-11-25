@@ -80,7 +80,7 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
         $this->_useAHAH = $_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode-and-ahah.php';
     }
 
-    function doProcessConfirmFormFromDisplayForm()
+    function doActivityOnProcessConfirmForm()
     {
         $validation = &$this->_context->getValidation();
         if ($validation->validate('Registration', $this->_user)) {
@@ -90,7 +90,7 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
         }
     }
 
-    function doProcessRegisterFromDisplayConfirmation()
+    function doActivityOnProcessRegister()
     {
         return 'DisplayFinishFromProcessRegister';
     }
