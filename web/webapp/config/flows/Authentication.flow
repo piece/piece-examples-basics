@@ -14,8 +14,6 @@ viewState:
     transition:
       - event: ProcessLoginFromDisplayForm
         nextState: ProcessLogin
-      - event: DisplayHomeFromDisplayForm
-        nextState: DisplayHome
   - name: DisplayHome
     view: Home
     activity:
@@ -23,8 +21,6 @@ viewState:
     transition:
       - event: ProcessLogoutFromDisplayHome
         nextState: ProcessLogout
-      - event: DisplayFinishFromDisplayHome
-        nextState: DisplayFinish
 
 actionState:
   - name: ProcessLogin
@@ -35,8 +31,6 @@ actionState:
         nextState: DisplayHome
       - event: DisplayFormFromProcessLogin
         nextState: DisplayForm
-      - event: ProcessLogoutFromProcessLogin
-        nextState: ProcessLogout
   - name: ProcessLogout
     activity:
       method: doActivityOnProcessLogout
