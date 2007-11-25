@@ -142,11 +142,11 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
     function _setTitle()
     {
         if ($_SERVER['SCRIPT_NAME'] == '/register-with-non-exclusive-mode.php') {
-            $title = 'A.1. A registration application. *non-exclusive*';
+            $title = 'A.1. An application component for registration. *non-exclusive*';
         } elseif ($_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode.php') {
-            $title = 'A.2. A Registration Application. *exclusive*';
+            $title = 'A.2. An application component for registration. *exclusive*';
         } elseif ($_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode-and-ahah.php') {
-            $title = 'A.3. A Registration Application with AHAH. *exclusive*';
+            $title = 'A.3. An application component with AHAH for registration. *exclusive*';
         }
 
         $viewElement = &$this->_context->getViewElement();

@@ -139,7 +139,7 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
     function _setTitle()
     {
         $viewElement = &$this->_context->getViewElement();
-        $viewElement->setElement('title', 'B.1. An authentication service. *exclusive*');
+        $viewElement->setElement('title', 'B.1. An application component for authentication. *exclusive*');
     }
 
     /**#@-*/

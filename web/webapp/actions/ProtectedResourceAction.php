@@ -93,7 +93,7 @@ class ProtectedResourceAction extends Piece_Unity_Service_FlowAction
     function _setTitle()
     {
         $viewElement = &$this->_context->getViewElement();
-        $viewElement->setElement('title', 'B.2. A resource which is protected by the above authentication service. *non-exclusive*');
+        $viewElement->setElement('title', 'B.2. A protected resource. *non-exclusive*');
     }
 
     /**#@-*/
