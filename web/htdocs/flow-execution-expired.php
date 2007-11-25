@@ -54,10 +54,9 @@ ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_N
 session_save_path("$base/sessions");
 
 $unity = &new Piece_Unity("$base/config", "$base/cache");
-$unity->setConfiguration('Configurator_Event', 'eventName', 'FlowExecutionExpired');
+$unity->setConfiguration('Configurator_AppRoot', 'appRoot', dirname(__FILE__));
+$unity->setConfiguration('Configurator_Event', 'eventName', 'Static_FlowExecutionExpired');
 $unity->setExtension('Controller', 'dispatcher', 'Dispatcher_Simple');
-$unity->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/Static");
-$unity->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/Static");
 $unity->dispatch();
 
 /*

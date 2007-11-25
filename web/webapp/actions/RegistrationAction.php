@@ -66,7 +66,7 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
 
     var $_user;
     var $_flowName;
-    var $_useAHAH = false;
+    var $_useAHAH;
 
     /**#@-*/
 
@@ -77,6 +77,7 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
     function RegistrationAction()
     {
         $this->_user = &new stdClass();
+        $this->_useAHAH = $_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode-and-ahah.php';
     }
 
     function doProcessConfirmFormFromDisplayForm()
@@ -130,9 +131,6 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
     {
         $continuation = &$this->_context->getContinuation();
         $this->_flowName = $continuation->getCurrentFlowName();
-        if ($this->_flowName == 'RegistrationWithExclusiveModeAndAHAH') {
-            $this->_useAHAH = true;
-        }
     }
 
     /**#@-*/
@@ -143,11 +141,11 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
 
     function _setTitle()
     {
-        if ($this->_flowName == 'RegistrationWithNonExclusiveMode') {
+        if ($_SERVER['SCRIPT_NAME'] == '/register-with-non-exclusive-mode.php') {
             $title = 'A.1. A registration application. *non-exclusive*';
-        } elseif ($this->_flowName == 'RegistrationWithExclusiveMode') {
+        } elseif ($_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode.php') {
             $title = 'A.2. A Registration Application. *exclusive*';
-        } elseif ($this->_flowName == 'RegistrationWithExclusiveModeAndAHAH') {
+        } elseif ($_SERVER['SCRIPT_NAME'] == '/register-with-exclusive-mode-and-ahah.php') {
             $title = 'A.3. A Registration Application with AHAH. *exclusive*';
         }
 

@@ -34,24 +34,6 @@
     - name: cacheDirectory
       type: configuration
       value: ../webapp/cache/flows
-    - name: flowDefinitions
-      type: configuration
-      value:
-        - name: RegistrationWithNonExclusiveMode
-          file: ../webapp/config/flows/Registration.yaml
-          isExclusive: false
-        - name: RegistrationWithExclusiveMode
-          file: ../webapp/config/flows/Registration.yaml
-          isExclusive: true
-        - name: RegistrationWithExclusiveModeAndAHAH
-          file: ../webapp/config/flows/Registration.yaml
-          isExclusive: true
-        - name: Authentication
-          file: ../webapp/config/flows/Authentication.yaml
-          isExclusive: true
-        - name: ProtectedResource
-          file: ../webapp/config/flows/ProtectedResource.yaml
-          isExclusive: false
     - name: enableGC
       type: configuration
       value: true
@@ -64,6 +46,30 @@
     - name: gcFallbackURL
       type: configuration
       value: "http://example.org/basics/flow-execution-expired.php"
+    - name: useFlowMappings
+      type: configuration
+      value: true
+    - name: configDirectory
+      type: configuration
+      value: ../webapp/config/flows
+    - name: flowMappings
+      type: configuration
+      value:
+        - url: /register-with-non-exclusive-mode.php
+          flowName: Registration
+          isExclusive: false
+        - url: /register-with-exclusive-mode.php
+          flowName: Registration
+          isExclusive: true
+        - url: /register-with-exclusive-mode-and-ahah.php
+          flowName: Registration
+          isExclusive: true
+        - url: /authenticate.php
+          flowName: Authentication
+          isExclusive: true
+        - url: /protected-resource.php
+          flowName: ProtectedResource
+          isExclusive: false
 
 - name: Dispatcher_Simple
   point:
@@ -93,13 +99,13 @@
       value: true
     - name: layoutView
       type: configuration
-      value: Layout
-    - name: layoutDirectory
+      value: Layout_Layout
+    - name: templateDir
       type: configuration
-      value: ../webapp/templates/Layout
-    - name: layoutCompileDirectory
+      value: ../webapp/templates
+    - name: compileDir
       type: configuration
-      value: ../webapp/compiled-templates/Layout
+      value: ../webapp/compiled-templates
 
 - name: Interceptor_Authentication
   point:

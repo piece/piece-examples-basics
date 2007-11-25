@@ -38,8 +38,8 @@
 error_reporting(E_ALL);
 
 if (file_exists(dirname(__FILE__) . '/../../imports')) {
-    set_include_path(dirname(__FILE__) . '/../../imports/spyc-0.2.5' . PATH_SEPARATOR .
-                     dirname(__FILE__) . '/../../imports/pear'
+    set_include_path(dirname(__FILE__) . '/../../imports/pear' . PATH_SEPARATOR .
+                     dirname(__FILE__) . '/../../imports/spyc-0.2.5'
                      );
 }
 
@@ -54,10 +54,9 @@ ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_N
 session_save_path("$base/sessions");
 
 $unity = &new Piece_Unity("$base/config", "$base/cache");
-$unity->setConfiguration('Configurator_Event', 'eventName', 'Index');
+$unity->setConfiguration('Configurator_AppRoot', 'appRoot', dirname(__FILE__));
+$unity->setConfiguration('Configurator_Event', 'eventName', 'Static_Index');
 $unity->setExtension('Controller', 'dispatcher', 'Dispatcher_Simple');
-$unity->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/Static");
-$unity->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/Static");
 $unity->dispatch();
 
 /*

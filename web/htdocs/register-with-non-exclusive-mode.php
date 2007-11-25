@@ -38,8 +38,8 @@
 error_reporting(E_ALL);
 
 if (file_exists(dirname(__FILE__) . '/../../imports')) {
-    set_include_path(dirname(__FILE__) . '/../../imports/spyc-0.2.5' . PATH_SEPARATOR .
-                     dirname(__FILE__) . '/../../imports/pear'
+    set_include_path(dirname(__FILE__) . '/../../imports/pear' . PATH_SEPARATOR .
+                     dirname(__FILE__) . '/../../imports/spyc-0.2.5'
                      );
 }
 
@@ -53,11 +53,8 @@ $base = dirname(__FILE__) . '/../webapp';
 ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])));
 session_save_path("$base/sessions");
 
-$flowName = 'Registration';
 $unity = &new Piece_Unity("$base/config", "$base/cache");
-$unity->setConfiguration('Dispatcher_Continuation', 'flowName', "{$flowName}WithNonExclusiveMode");
-$unity->setConfiguration('Renderer_Flexy', 'templateDir', "$base/templates/$flowName");
-$unity->setConfiguration('Renderer_Flexy', 'compileDir', "$base/compiled-templates/$flowName");
+$unity->setConfiguration('Configurator_AppRoot', 'appRoot', dirname(__FILE__));
 $unity->dispatch();
 
 /*

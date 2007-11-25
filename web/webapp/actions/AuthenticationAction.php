@@ -125,17 +125,6 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         $this->_setTitle();
     }
 
-    function isAuthenticated()
-    {
-        $context = &Piece_Unity_Context::singleton();
-        $session = &$context->getSession();
-        if ($session->hasAttribute('isAuthenticated')) {
-            return $session->getAttribute('isAuthenticated');
-        } else {
-            return false;
-        }
-    }
-
     function doActivityOnDisplayFinish()
     {
         $this->_setTitle();
