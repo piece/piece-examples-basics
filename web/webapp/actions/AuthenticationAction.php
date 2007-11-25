@@ -78,7 +78,7 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         $this->_user = &new stdClass();
     }
 
-    function doProcessLoginFromDisplayForm()
+    function doActivityOnProcessLogin()
     {
         $validation = &$this->_context->getValidation();
         if ($validation->validate('Authentication', $this->_user)) {
@@ -100,7 +100,7 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         }
     }
 
-    function doProcessLogoutFromDisplayHome()
+    function doActivityOnProcessLogout()
     {
         $authentication = &new Piece_Unity_Service_Authentication();
         $authentication->logout();
