@@ -39,13 +39,16 @@ require_once 'PEAR/PackageFileManager2.php';
 
 PEAR::staticPushErrorHandling(PEAR_ERROR_CALLBACK, create_function('$error', 'var_dump($error); exit();'));
 
-$releaseVersion = '1.0.0';
+$releaseVersion = '1.1.0';
 $releaseStability = 'stable';
-$apiVersion = '1.0.0';
+$apiVersion = '1.1.0';
 $apiStability = 'stable';
-$notes = 'This is the first stable release of Piece_Examples_Basics.
+$notes = 'A new release of Piece_Examples_Basics is now available.
 
-This package is extracted from the Piece_Unity package.';
+What\'s New in Piece_Examples_Basics 1.1.0
+
+ * Update to Piece_Unity 1.4.0: The code of this release includes a lot of uses of new features of Piece_Unity.
+ * New HTML design: HTML design has been renewed.';
 
 $package = new PEAR_PackageFileManager2();
 $package->setOptions(array('filelistgenerator' => 'svn',
@@ -56,7 +59,7 @@ $package->setOptions(array('filelistgenerator' => 'svn',
                            'packagedirectory'  => '.',
                            'dir_roles'         => array('docs' => 'doc',
                                                         'web' => 'data'),
-                           'ignore'            => array('package.php', 'package.xml', 'imports/', 'scripts/'))
+                           'ignore'            => array('package.php', 'package.xml', '.settings/', '.project'))
                      );
 
 $package->setPackage('Piece_Examples_Basics');
@@ -74,17 +77,15 @@ $package->setReleaseStability($releaseStability);
 $package->setNotes($notes);
 $package->setPhpDep('4.3.0');
 $package->setPearinstallerDep('1.4.3');
-$package->addPackageDepWithChannel('required', 'Piece_Unity', 'pear.piece-framework.com', '1.0.0');
+$package->addPackageDepWithChannel('required', 'Piece_Unity', 'pear.piece-framework.com', '1.4.0');
 $package->addPackageDepWithChannel('required', 'Piece_Unity_Component_NullByteAttackPreventation', 'pear.piece-framework.com', '1.0.0');
-$package->addPackageDepWithChannel('required', 'Piece_Unity_Component_Authentication', 'pear.piece-framework.com', '0.13.0');
-$package->addPackageDepWithChannel('required', 'Piece_Unity_Component_Flexy', 'pear.piece-framework.com', '1.0.0');
+$package->addPackageDepWithChannel('required', 'Piece_Unity_Component_Authentication', 'pear.piece-framework.com', '1.0.0');
+$package->addPackageDepWithChannel('required', 'Piece_Unity_Component_Flexy', 'pear.piece-framework.com', '1.2.0');
 $package->addMaintainer('lead', 'iteman', 'KUBO Atsuhiro', 'iteman@users.sourceforge.net');
 $package->addGlobalReplacement('package-info', '@package_version@', 'version');
 $package->generateContents();
 
-if (array_key_exists(1, $_SERVER['argv'])
-    && $_SERVER['argv'][1] == 'make'
-    ) {
+if (array_key_exists(1, $_SERVER['argv']) && $_SERVER['argv'][1] == 'make') {
     $package->writePackageFile();
 } else {
     $package->debugPackageFile();

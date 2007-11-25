@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id$ -->
-<package packagerversion="1.5.4" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+<package packagerversion="1.6.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
     http://pear.php.net/dtd/tasks-1.0.xsd
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
@@ -14,20 +13,23 @@
   <email>iteman@users.sourceforge.net</email>
   <active>yes</active>
  </lead>
- <date>2007-07-19</date>
- <time>22:27:48</time>
+ <date>2007-11-25</date>
+ <time>22:28:54</time>
  <version>
-  <release>1.0.0</release>
-  <api>1.0.0</api>
+  <release>1.1.0</release>
+  <api>1.1.0</api>
  </version>
  <stability>
   <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
- <notes>This is the first stable release of Piece_Examples_Basics.
+ <notes>A new release of Piece_Examples_Basics is now available.
 
-This package is extracted from the Piece_Unity package.</notes>
+What&apos;s New in Piece_Examples_Basics 1.1.0
+
+ * Update to Piece_Unity 1.4.0: The code of this release includes a lot of uses of new features of Piece_Unity.
+ * New HTML design: HTML design has been renewed.</notes>
  <contents>
   <dir baseinstalldir="/" name="/">
    <dir name="docs">
@@ -38,7 +40,13 @@ This package is extracted from the Piece_Unity package.</notes>
    <dir name="web">
     <dir name="htdocs">
      <dir name="css">
-      <file name="default.css" role="data">
+      <file name="application.css" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="common.css" role="data">
+       <tasks:replace from="@package_version@" to="version" type="package-info" />
+      </file>
+      <file name="print.css" role="data">
        <tasks:replace from="@package_version@" to="version" type="package-info" />
       </file>
      </dir> <!-- /web/htdocs/css -->
@@ -63,11 +71,11 @@ This package is extracted from the Piece_Unity package.</notes>
       <file name="ahah.js" role="data">
        <tasks:replace from="@package_version@" to="version" type="package-info" />
       </file>
-      <file name="window_operation.js" role="data">
-       <tasks:replace from="@package_version@" to="version" type="package-info" />
-      </file>
      </dir> <!-- /web/htdocs/js -->
      <file name="authenticate.php" role="data">
+      <tasks:replace from="@package_version@" to="version" type="package-info" />
+     </file>
+     <file name="flow-execution-expired.php" role="data">
       <tasks:replace from="@package_version@" to="version" type="package-info" />
      </file>
      <file name="index.php" role="data">
@@ -123,18 +131,21 @@ This package is extracted from the Piece_Unity package.</notes>
      </dir> <!-- /web/webapp/compiled-templates -->
      <dir name="config">
       <dir name="flows">
-       <file name="Authentication.yaml" role="data">
+       <file name="Authentication.flow" role="data">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
-       <file name="ProtectedResource.yaml" role="data">
+       <file name="ProtectedResource.flow" role="data">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
-       <file name="Registration.yaml" role="data">
+       <file name="Registration.flow" role="data">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
       </dir> <!-- /web/webapp/config/flows -->
       <dir name="validations">
        <file name="Authentication.yaml" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
+       <file name="Common.yaml" role="data">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
        <file name="Registration.yaml" role="data">
@@ -190,6 +201,9 @@ This package is extracted from the Piece_Unity package.</notes>
        </file>
       </dir> <!-- /web/webapp/templates/Registration -->
       <dir name="Static">
+       <file name="FlowExecutionExpired.html" role="data">
+        <tasks:replace from="@package_version@" to="version" type="package-info" />
+       </file>
        <file name="Index.html" role="data">
         <tasks:replace from="@package_version@" to="version" type="package-info" />
        </file>
@@ -210,7 +224,7 @@ This package is extracted from the Piece_Unity package.</notes>
    <package>
     <name>Piece_Unity</name>
     <channel>pear.piece-framework.com</channel>
-    <min>1.0.0</min>
+    <min>1.4.0</min>
    </package>
    <package>
     <name>Piece_Unity_Component_NullByteAttackPreventation</name>
@@ -220,17 +234,35 @@ This package is extracted from the Piece_Unity package.</notes>
    <package>
     <name>Piece_Unity_Component_Authentication</name>
     <channel>pear.piece-framework.com</channel>
-    <min>0.13.0</min>
+    <min>1.0.0</min>
    </package>
    <package>
     <name>Piece_Unity_Component_Flexy</name>
     <channel>pear.piece-framework.com</channel>
-    <min>1.0.0</min>
+    <min>1.2.0</min>
    </package>
   </required>
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.1.0</release>
+    <api>1.1.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-11-25</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">BSD License (revised)</license>
+   <notes>A new release of Piece_Examples_Basics is now available.
+
+What&apos;s New in Piece_Examples_Basics 1.1.0
+
+ * Update to Piece_Unity 1.4.0: The code of this release includes a lot of uses of new features of Piece_Unity.
+ * New HTML design: HTML design has been renewed.</notes>
+  </release>
   <release>
    <version>
     <release>1.0.0</release>
