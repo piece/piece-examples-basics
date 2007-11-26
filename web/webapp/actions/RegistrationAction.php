@@ -28,7 +28,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package    Piece_Unity
- * @copyright  Piece Project
+ * @copyright  2007 Piece Project
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
  * @version    SVN: $Id$
  * @since      File available since Release 1.0.0
@@ -43,7 +43,7 @@ require_once 'Piece/Unity/Service/FlexyElement.php';
  * Action class for the flow Registration.
  *
  * @package    Piece_Unity
- * @copyright  Piece Project
+ * @copyright  2007 Piece Project
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License (revised)
  * @version    Release: @package_version@
  * @since      Class available since Release 1.0.0
