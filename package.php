@@ -64,7 +64,7 @@ $package->setOptions(array('filelistgenerator' => 'svn',
 $package->setPackage('Piece_Examples_Basics');
 $package->setPackageType('php');
 $package->setSummary('Piece Framework basics examples');
-$package->setDescription('Piece_Examples_Basics provides several example applications which focus on presenting the basics of using Piece_Unity.');
+$package->setDescription('Piece_Examples_Basics provides several example applications which focus on presenting the basics and recommended usage for Piece_Unity.');
 $package->setChannel('pear.piece-framework.com');
 $package->setLicense('BSD License (revised)',
                      'http://www.opensource.org/licenses/bsd-license.php'
