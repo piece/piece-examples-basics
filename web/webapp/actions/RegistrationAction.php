@@ -64,7 +64,6 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
      */
 
     var $_user;
-    var $_flowName;
     var $_useAHAH;
 
     /**#@-*/
@@ -124,12 +123,6 @@ class RegistrationAction extends Piece_Unity_Service_FlowAction
         $viewElement->setElement('useAHAH', $this->_useAHAH);
 
         $this->_setTitle();
-    }
-
-    function prepare()
-    {
-        $continuation = &$this->_context->getContinuation();
-        $this->_flowName = $continuation->getCurrentFlowName();
     }
 
     /**#@-*/
