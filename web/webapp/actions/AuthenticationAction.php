@@ -82,6 +82,8 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
         $validation = &$this->_context->getValidation();
         if ($validation->validate('Authentication', $this->_user)) {
             if ($this->_user->loginName === 'guest' && $this->_user->password === 'guest') {
+                $session = &$this->_context->getSession();
+                $session->setAttributeByRef('user', $this->_user);
                 $authentication = &new Piece_Unity_Service_Authentication();
                 $authentication->login();
                 if ($authentication->hasCallbackURL()) {
@@ -103,6 +105,8 @@ class AuthenticationAction extends Piece_Unity_Service_FlowAction
     {
         $authentication = &new Piece_Unity_Service_Authentication();
         $authentication->logout();
+        $session = &$this->_context->getSession();
+        $session->removeAttribute('user');
         return 'DisplayFinishFromProcessLogout';
     }
 
