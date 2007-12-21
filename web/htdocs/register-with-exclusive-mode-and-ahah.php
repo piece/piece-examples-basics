@@ -34,28 +34,11 @@
  * @since      File available since Release 1.0.0
  */
 
-error_reporting(E_ALL);
+require dirname(__FILE__) . '/../webapp/lib/prepare.php';
 
-if (file_exists(dirname(__FILE__) . '/../../imports')) {
-    set_include_path(dirname(__FILE__) . '/../../imports/pear' . PATH_SEPARATOR .
-                     dirname(__FILE__) . '/../../imports/spyc-0.2.5'
-                     );
-}
-
-require_once 'Piece/Unity.php';
-require_once 'Piece/Unity/Error.php';
-
-Piece_Unity_Error::pushCallback(create_function('$error', 'var_dump($error); return ' . PEAR_ERRORSTACK_DIE . ';'));
-
-$base = dirname(__FILE__) . '/../webapp';
-
-ini_set('session.cookie_path', str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])));
-session_save_path("$base/sessions");
-
-$unity = &new Piece_Unity("$base/config", "$base/cache");
-$unity->setConfiguration('Configurator_AppRoot', 'appRoot', dirname(__FILE__));
-$unity->setConfiguration('Renderer_Flexy', 'turnOffLayoutByHTTPAccept', true);
-$unity->dispatch();
+$runtime = &createRuntime();
+$runtime->setConfiguration('Renderer_Flexy', 'turnOffLayoutByHTTPAccept', true);
+$runtime->dispatch();
 
 /*
  * Local Variables:
