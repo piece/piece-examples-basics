@@ -16,6 +16,6 @@
   </fieldset>
   <p>
     <input type="submit" name="{__eventNameKey}_ProcessConfirmFormFromDisplayForm" value="confirm" flexy:if="!useAHAH" />
-    <input type="submit" value="confirm" name="{__eventNameKey}_ProcessConfirmFormFromDisplayForm" onclick="sendAHAHReqeust(this, 'content');return false;" flexy:if="useAHAH" />
+    <input type="submit" value="confirm" name="{__eventNameKey}_ProcessConfirmFormFromDisplayForm" onclick="sendAHAHRequest(this, 'container');return false;" flexy:if="useAHAH" />
   </p>
 </form>
